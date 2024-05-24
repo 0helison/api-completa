@@ -1,4 +1,5 @@
 import 'reflect-metadata';
+import 'dotenv/config';
 import express, { Request, Response, NextFunction } from 'express';
 import 'express-async-errors';
 import cors from 'cors';
@@ -35,6 +36,6 @@ app.use(
   },
 );
 
-app.listen(3000, () => {
-  console.log('Server start on port 3000');
+app.listen(3333, () => {
+  console.log('Server start on port 3333');
 });
