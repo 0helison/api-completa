@@ -6,7 +6,7 @@ import IRequestCustomerAndProduct from '@modules/orders/interfaces/IRequestCusto
 class OrdersRepository extends Repository<Order> {
   public async findById(id: string): Promise<Order | undefined> {
     const order = await this.findOne(id, {
-      relations: ['customer', 'orders_products'],
+      relations: ['order_products', 'customer'],
     });
 
     return order;
