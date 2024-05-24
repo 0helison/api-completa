@@ -1,3 +1,3 @@
-export interface IRequestId {
+export default interface IRequestId {
   id: string;
 }

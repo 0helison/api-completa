@@ -1,4 +1,4 @@
-export interface IResquestBodyNoId {
+export default interface IResquestBodyNoId {
   name: string;
   price: number;
   quantity: number;
