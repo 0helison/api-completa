@@ -18,9 +18,15 @@ export default function isAuthenticated(
   const [, token] = authHeader.split(' ');
 
   try {
-    const decodedToken = verify(token, authConfig.jwt.secret);
+    const secret = authConfig.jwt.secret;
 
-    const { sub } = decodedToken as ITokenPayload;
+    if (!secret) {
+      throw new AppError('JWT secret is missing.');
+    }
+
+    const decodedToken = verify(token, secret) as ITokenPayload;
+
+    const { sub } = decodedToken;
 
     request.user = {
       id: sub,
