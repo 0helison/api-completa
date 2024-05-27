@@ -1,4 +1,4 @@
-export default interface IRequestUserData {
+export interface IUpdateProfile {
   user_id: string;
   name: string;
   email: string;

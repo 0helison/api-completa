@@ -1,27 +1,30 @@
-import { EntityRepository, Repository } from 'typeorm';
+import { getRepository, Repository } from 'typeorm';
 import Order from '../entities/Orders';
-import IRequestCustomerAndProduct from '@modules/orders/interfaces/IRequestCustomerAndProducts';
+import ICreateOrder from '@modules/orders/domain/models/ICreateOrder';
+import { IOrdersRepository } from '@modules/orders/domain/repositories/IOrdersRepository';
 
-@EntityRepository(Order)
-class OrdersRepository extends Repository<Order> {
+class OrdersRepository implements IOrdersRepository {
+  private ormRepository: Repository<Order>;
+
+  constructor() {
+    this.ormRepository = getRepository(Order);
+  }
+
   public async findById(id: string): Promise<Order | undefined> {
-    const order = await this.findOne(id, {
+    const order = await this.ormRepository.findOne(id, {
       relations: ['order_products', 'customer'],
     });
 
     return order;
   }
 
-  public async createOrder({
-    customer,
-    products,
-  }: IRequestCustomerAndProduct): Promise<Order> {
-    const order = this.create({
+  public async create({ customer, products }: ICreateOrder): Promise<Order> {
+    const order = this.ormRepository.create({
       customer,
       order_products: products,
     });
 
-    await this.save(order);
+    await this.ormRepository.save(order);
 
     return order;
   }
