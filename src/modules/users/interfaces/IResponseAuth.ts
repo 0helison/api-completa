@@ -1,4 +1,4 @@
-import User from '../typeorm/entities/User';
+import User from '../infra/typeorm/entities/User';
 
 export default interface IResponseAuth {
   user: User;

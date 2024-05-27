@@ -2,8 +2,8 @@ import { getCustomRepository } from 'typeorm';
 import path from 'path';
 import AppError from '@shared/errors/AppError';
 import IRequestEmail from '../interfaces/IRequestEmail';
-import UserTokensRepository from '../typeorm/repository/UserTokensRepository';
-import UserRepository from '../typeorm/repository/UserRepository';
+import UserTokensRepository from '../infra/typeorm/repository/UserTokensRepository';
+import UserRepository from '../infra/typeorm/repository/UserRepository';
 import Etherealmail from '@config/mail/EtherealMail';
 
 class SendForgotPasswordEmailService {

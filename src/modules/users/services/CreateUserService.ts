@@ -1,8 +1,8 @@
 import { getCustomRepository } from 'typeorm';
 import AppError from '@shared/errors/AppError';
 import { IResquestBodyNoId } from '../interfaces/IRequestBodyNoId';
-import User from '../typeorm/entities/User';
-import UserRepository from '../typeorm/repository/UserRepository';
+import User from '../infra/typeorm/entities/User';
+import UserRepository from '../infra/typeorm/repository/UserRepository';
 import { hash } from 'bcrypt';
 
 class CreateUserService {

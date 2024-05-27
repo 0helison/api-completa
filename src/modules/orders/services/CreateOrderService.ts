@@ -1,10 +1,10 @@
 import { getCustomRepository } from 'typeorm';
 import AppError from '@shared/errors/AppError';
 import IRequestCustomerIdAndListProductsQuantity from '../interfaces/IRequestCustomerIdAndListProductsQuantity';
-import Order from '../typeorm/entities/Orders';
-import OrdersRepository from '../typeorm/repositories/OrdersRepository';
-import CustomersRepository from '@modules/customers/typeorm/repositories/CustomersRepository';
-import ProductRepository from '@modules/products/typeorm/repositories/ProductsRepository';
+import Order from '../infra/typeorm/entities/Orders';
+import OrdersRepository from '../infra/typeorm/repositories/OrdersRepository';
+import CustomersRepository from '@modules/customers/infra/typeorm/repositories/CustomersRepository';
+import ProductRepository from '@modules/products/infra/typeorm/repositories/ProductsRepository';
 
 class CreateOrderService {
   public async execute({

@@ -2,8 +2,8 @@ import AppError from '@shared/errors/AppError';
 import { getCustomRepository } from 'typeorm';
 import { isAfter, addHours } from 'date-fns';
 import IRequestTokenAndPassword from '../interfaces/IRequestTokenAndPassword';
-import UserRepository from '../typeorm/repository/UserRepository';
-import UserTokensRepository from '../typeorm/repository/UserTokensRepository';
+import UserRepository from '../infra/typeorm/repository/UserRepository';
+import UserTokensRepository from '../infra/typeorm/repository/UserTokensRepository';
 import { hash } from 'bcrypt';
 
 class ResetPasswordService {

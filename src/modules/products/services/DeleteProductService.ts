@@ -1,5 +1,5 @@
 import { getCustomRepository } from 'typeorm';
-import ProductRepository from '../typeorm/repositories/ProductsRepository';
+import ProductRepository from '../infra/typeorm/repositories/ProductsRepository';
 import { IRequestId } from '../interfaces/IRequestId';
 import AppError from '@shared/errors/AppError';
 

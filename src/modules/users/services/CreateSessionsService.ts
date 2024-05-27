@@ -1,6 +1,6 @@
 import { getCustomRepository } from 'typeorm';
 import AppError from '@shared/errors/AppError';
-import UserRepository from '../typeorm/repository/UserRepository';
+import UserRepository from '../infra/typeorm/repository/UserRepository';
 import { compare } from 'bcrypt';
 import { IResquestAuth } from '../interfaces/IRequestAuth';
 import IResponseAuth from '../interfaces/IResponseAuth';

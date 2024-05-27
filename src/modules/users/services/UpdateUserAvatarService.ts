@@ -2,8 +2,8 @@ import AppError from '@shared/errors/AppError';
 import path from 'path';
 import fs from 'fs';
 import { getCustomRepository } from 'typeorm';
-import User from '../typeorm/entities/User';
-import UsersRepository from '../typeorm/repository/UserRepository';
+import User from '../infra/typeorm/entities/User';
+import UsersRepository from '../infra/typeorm/repository/UserRepository';
 import uploadConfig from '@config/upload';
 import IRequestUserAvatar from '../interfaces/IRequestUserAvatar';
 
