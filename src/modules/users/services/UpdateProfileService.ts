@@ -1,6 +1,6 @@
 import { inject, injectable } from 'tsyringe';
 import AppError from '@shared/errors/AppError';
-import { compare, hash } from 'bcrypt';
+import bcryptjs from 'bcryptjs';
 import { IUsersRepository } from '../domain/repositories/IUserRepository';
 import { IUser } from '../domain/models/IUser';
 import { IUpdateProfile } from '../domain/models/IUpdateProfile';
@@ -36,13 +36,16 @@ class UpdateProfileService {
     }
 
     if (password && old_password) {
-      const checkOldPassword = await compare(old_password, user.password);
+      const checkOldPassword = await bcryptjs.compare(
+        old_password,
+        user.password,
+      );
 
       if (!checkOldPassword) {
         throw new AppError('Old password does not match.');
       }
 
-      user.password = await hash(password, 8);
+      user.password = await bcryptjs.hash(password, 8);
     }
 
     user.name = name;

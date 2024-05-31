@@ -3,9 +3,8 @@ import { IProductsRepository } from '@modules/products/domain/repositories/IProd
 import Product from '../entities/Product';
 import { IFindProducts } from '@modules/products/domain/models/IFindProducts';
 import { ICreateProduct } from '@modules/products/domain/models/ICreateProduct';
-import { IUpdateStockProduct } from '@modules/products/domain/models/IUpdateStockProduct';
-import { IProductPaginate } from '@modules/products/domain/models/IProductPaginate';
 import { dataSource } from '@shared/infra/typeorm';
+import { IProductPaginate } from '@modules/products/domain/models/IProductPaginate';
 
 type SearchParams = {
   page: number;
@@ -40,10 +39,6 @@ class ProductsRepository implements IProductsRepository {
 
   public async remove(product: Product): Promise<void> {
     await this.ormRepository.remove(product);
-  }
-
-  public async updateStock(products: IUpdateStockProduct[]): Promise<void> {
-    await this.ormRepository.save(products);
   }
 
   public async findByName(name: string): Promise<Product | null> {

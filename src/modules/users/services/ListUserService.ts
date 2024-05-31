@@ -1,6 +1,5 @@
 import { inject, injectable } from 'tsyringe';
 import { IPaginateUser } from '../domain/models/IPaginateUser';
-
 import { ISearchParamsListUsers } from '../domain/models/ISearchParamsListUsers';
 import { IUsersRepository } from '../domain/repositories/IUserRepository';
 

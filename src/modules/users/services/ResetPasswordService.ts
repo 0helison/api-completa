@@ -1,7 +1,7 @@
 import { inject, injectable } from 'tsyringe';
 import AppError from '@shared/errors/AppError';
 import { isAfter, addHours } from 'date-fns';
-import { hash } from 'bcrypt';
+import bcryptjs from 'bcryptjs';
 import { IUsersRepository } from '../domain/repositories/IUserRepository';
 import { IUserTokensRepository } from '../domain/repositories/IUserTokenRepository';
 import { IResetPassword } from '../domain/models/IResetPassword';
@@ -36,7 +36,7 @@ class ResetPasswordService {
       throw new AppError('Token expired.');
     }
 
-    user.password = await hash(password, 8);
+    user.password = await bcryptjs.hash(password, 8);
 
     await this.usersRepository.save(user);
   }

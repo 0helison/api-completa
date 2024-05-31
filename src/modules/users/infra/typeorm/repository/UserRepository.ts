@@ -1,6 +1,5 @@
 import { ICreateUser } from '@modules/users/domain/models/ICreateUser';
 import { IPaginateUser } from '@modules/users/domain/models/IPaginateUser';
-
 import { Repository } from 'typeorm';
 import User from '../entities/User';
 import { dataSource } from '@shared/infra/typeorm';

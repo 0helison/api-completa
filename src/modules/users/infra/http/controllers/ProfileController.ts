@@ -7,9 +7,9 @@ import { instanceToInstance } from 'class-transformer';
 export default class ProfileController {
   public async show(request: Request, response: Response): Promise<Response> {
     const showProfile = container.resolve(ShowProfileService);
-    const user_id = request.user.id;
+    const id = request.user.id;
 
-    const user = await showProfile.execute({ user_id });
+    const user = await showProfile.execute({ id });
 
     return response.json(instanceToInstance(user));
   }
